@@ -24,8 +24,8 @@ public class Rational
     {
         int newNumerator = r.numerator*s.denominator + s.numerator*r.denominator;
         int newDenominator = r.denominator*s.denominator; 
-        
         Rational x = new Rational(newNumerator, newDenominator);
+        x = simplify(x);
         return x;
     }
 
@@ -50,28 +50,37 @@ public class Rational
     //      simplify(1/2) => 1/2
     public static Rational simplify(Rational r)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int factor = greatestCommonFactor(r.numerator, r.denominator);
+        int newNumerator = r.numerator/factor;
+        int newDenominator = r.denominator/factor;
+        Rational x = new Rational(newNumerator, newDenominator);
+        return x;
     }
 
     // This method takes two Rationals, subtracts thems up, 
     // and returns a Rational equal to the difference
     public static Rational subtract(Rational r, Rational s)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int newNumerator = (r.numerator*s.denominator)-(s.numerator*r.denominator);
+        int newDenominator = r.denominator * s.denominator;
+        Rational subx  = new Rational(newNumerator,newDenominator);
+        return simplify(subx);
     }
     
     public static Rational multiply(Rational r, Rational s)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int newNumerator = r.numerator*s.numerator;
+        int newDenominator = r.denominator*s.denominator;
+        Rational multx = new Rational(newNumerator,newDenominator);
+        return simplify(multx);
     }
     
     public static Rational divide(Rational r, Rational s)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int newNumerator = r.numerator*s.denominator;
+        int newDenominator = r.denominator*s.numerator;
+        Rational divx = new Rational(newNumerator,newDenominator);
+        return simplify(divx);
     }
 
 
